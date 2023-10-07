@@ -1,38 +1,73 @@
-/* Tämä tiedosto määrittelee sivuston tyylit. */
-
-<!DOCTYPE html>
-<html lang="fi">
-<head>
-  <title>Bard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Bard</h1>
-    <nav>
-      <a href="#">Etusivu</a>
-      <a href="#">Tietoja</a>
-      <a href="#">Yhteystiedot</a>
-    </nav>
-  </header>
-  <main>
-    <div class="content">
-      <div class="icon-container">
-        <div class="icon">
-          <img src="icon1.png" alt="Icon 1">
-        </div>
-        <div class="icon">
-          <img src="icon2.png" alt="Icon 2">
-        </div>
-        <div class="icon">
-          <img src="icon3.png" alt="Icon 3">
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <p>Tekijä: Jussipussi</p>
-    <p>Käyttöehdot</p>
-  </footer>
-</body>
-</html>
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #000000;
+  }
+  
+  header {
+    background-color: #000000;
+    color: #ffffff;
+    height: 60px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  main {
+    min-height: 500px;
+  }
+  
+  section.content {
+    padding: 20px;
+  }
+  
+  div.image {
+    width: 50%;
+    float: left;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  div.text {
+    width: 50%;
+    float: right;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  div.video {
+    width: 100%;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+  
+  div.call-to-action {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  footer {
+    background-color: #000000;
+    color: #ffffff;
+    height: 60px;
+    padding: 20px;
+  }
+  
