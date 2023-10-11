@@ -6,12 +6,13 @@ body, html {
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   color: rgb(234, 234, 234);
-  background-color: rgb(11, 11, 11);
+  background-color: rgb(12, 12, 12);
   overflow-x: hidden;
 }
 
 .container {
   position: relative;
+  overflow: hidden;
 }
 
 .logo {
@@ -19,70 +20,73 @@ body, html {
   top: 10px;
   left: 10px;
   width: 150px;
+  z-index: 4;
+}
+
+.owl-container {
+  position: fixed;
+  top: -10%;
+  left: 20%;
+  width: 60%;
+  height: 100vh; /* Tämä varmistaa, että pöllökuva kattaa koko näytön korkeuden */
+  background-image: url('images/HY_Serendip_main-Vertical.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 1; /* Aseta z-indeksi, jotta se sijoittuu muiden elementtien alle */
+}
+
+.overlay {
+  position: relative;
   z-index: 2;
 }
 
-.owl-image {
-  position: fixed;
-  top: -15%;
-  left: 50%;
+.icons-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  position: absolute;
+  top: -30%;
+  left: 20%;
   width: 60%;
-  object-position: center;
-  transform: translateX(-50%);
-  z-index: 0;
+  height: 270px;
+  z-index: 2;
 }
 
 h1 {
   position: relative;
-  top: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 8em;
-  width: 400px;
-  z-index: 1;
+  margin-top: 35%;
+  font-size: 9vw;
   text-align: center;
+  z-index: 3;
 }
 
 .icons {
-  position: relative;
-  margin-top: 80px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  z-index: 1;
-}
-
-.icons-gradient {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(8, 8, 8, 0.99));
-  display: inline-block;
-  padding: 0px;
-  position: relative;
-  margin-top: 80px;
-  top: 0%;
-  left: 50%;
-  width: 60%;
-  transform: translateX(-50%);
-  z-index: 0;
+  position: absolute; /* Muutetaan position-arvoksi absolute */
+  left: 50%; /* Keskittää iconin vaakasuunnassa */
+  top: 100%; /* Määrittelee kuinka korkealle icon sijoitetaan, pienemmät arvot nostavat sitä ylöspäin */
+  transform: translate(-50%, -50%); /* Keskittää iconin suhteessa sen omiin dimensioihin, auttaa säilyttämään keskityksen myös kun ikonin paikkaa muutetaan */
+  width: 20%;
+  z-index: 3;
 }
 
 .content {
-  margin-top: 0px;
-  z-index: 1;
   position: relative;
-  padding-top: 30px;
-  background-color: rgb(19, 19, 19);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  background-attachment: fixed;
+  z-index: 2;
+  margin-top: -4%;
+  padding-top: 20px;
 }
 
 .centered-text {
   text-align: center;
   width: 50%;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 
 .game-link {
   display: block;
   text-align: center;
-  margin: 20px 0;
+  margin: 50px 0;
   color: rgb(214, 143, 13);
   font-weight: bold;
   text-decoration: none;
@@ -99,6 +103,7 @@ h1 {
   width: 100%;
   display: block;
   object-fit: contain;
+  margin-bottom: 50px;
 }
 
 .content-container {
@@ -113,14 +118,14 @@ h1 {
 }
 
 .learning-goals {
-  font-size: 2em;
+  font-size: 100%;
 }
 
 .learning-text {
   margin-top: -80px;
   width: 50%;
   margin-left: 50%;
-  font-size: 12px;
+  font-size: 100%;
 }
 
 .earth-image {
@@ -140,35 +145,74 @@ h1 {
 
 .book-title {
   margin-top: -290px;
-  font-size: 1.5em;
+  font-size: 100%;
 }
 
 .book-text {
-  margin-top: -90px;
+  margin-top: -50px;
   width: 50%;
   margin-left: 50%;
-  font-size: 12px;
+  font-size: 100%;
 }
 
-.rainforest-image {
-  margin-top: 120px;
-  width: 30%;
-  float: right;
-  margin-right: 20px;
+.episode-container {
+  display: flex;
+  flex-direction: row; /* Muutettu row-reverse -> row */
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+
+.titles-and-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 20px; /* Jos tarvitset lisää tilaa oikealla puolella */
+}
+
+.titles {
+  flex: 1;
+  padding-right: 20px;
+  margin-top: 100px;
+}
+
+.rainforest-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aseta takaisin flex-end, jotta kuva on oikealla puolella */
 }
 
 .rainforest-text {
-  margin-top: 120px;
-  width: 60%;
-  float: left;
+  margin-top: 0px;
+  width: 100%; /* Muutettu 40% -> 100%, jotta se ottaa koko saatavilla olevan leveyden */
   font-size: 12px;
+  margin-bottom: 50px;
+  text-align: left;
 }
+
+.borealforest-image {
+  width: 500px;
+  margin-top: 180px;
+  margin-bottom: 10px;
+}
+
+.titles h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.titles h3 {
+  font-size: 1.5em;
+}
+
 
 .upcoming-title {
   margin-top: 100px;
   clear: both;
   text-align: center;
-  font-size: 14;
+  font-size: 150%;
   font-weight: bold;
 }
 
@@ -178,20 +222,20 @@ h1 {
 }
 
 .episodes img {
-  width: 5%;
-  margin: 20px;
+  width: 3%;
+  margin: 30px;
 }
 
 .episode-titles {
   text-align: center;
   margin-top: 10px;
-  font-size: 1.5em;
+  font-size: 120%;
 }
 
 .episode-titles p {
   display: inline-block;
   margin: 0 10px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .footer-wrapper {
