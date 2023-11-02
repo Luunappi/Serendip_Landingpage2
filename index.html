@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serendip</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <!-- <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">-->
 </head>
 <body>
     <div class="container">
+        <div class="top-bar">
         <img src="images/HY_logo_W.png" alt="Logo" class="logo">
-
-        <div class="owl-container"></div> <!-- Pöllökuva taustalla -->
+        </div>
 
         <div class="overlay"> <!-- Serendip teksti, icons kuva ja gradient tausta -->
             <div class="icons-gradient"></div> <!-- Gradient tausta -->
             <h1>SERENDIP</h1> <!-- Serendip teksti -->
-            <img src="images/Icons_all.png" alt="Icons" class="icons"> <!-- Icons kuva -->
+            
+        
         </div>
+        
+        
 
         <div class="content">
+            <img src="images/Icons_all.png" alt="Icons" class="icons" /> 
           <p class="centered-text">
               Welcome to the world of Serendip, a virtual place grounded in reality where you get to practice different sustainability competences through unique experiences. In the the world of Serendip, sustainability is a priority for humans. It is the place where everyone trains to become a change agent. In Serendip everything is possible, even meeting the ancient Storyteller of the Earth, Madida, who once saw the planet being born. There are enchanted animals and plants, which tell you their own stories and help you do your tasks. In Serendip everyone works together, because they have a common goal, ensuring the survival of their kin. Join us!.
           </p>
@@ -34,30 +37,36 @@
           </div>
           <div class="content-container">
               <div class="learning-goals">
+                <div class="learning-goals-main">
                   <h2 class="learning-goals-title">LEARNING GOALS</h2>
                   <p class="learning-text">
                       The goal of the game is to develop multidisciplinary sustainability competencies. Based on the discussions, information and experiences gathered in the game, you will be required to do a main task which will be related to the overall pedagogical layout of each episode. 1 In the game, there will be fictional characters that you will meet, information you will read and videos you will watch while playing. All the information you collect will contribute to your understanding of the complexity of the sustainability problems. You can become the change agent this planet needs!
                   </p>
-                  <img src="images/earth2.png" alt="Earth" class="earth-image">
+                </div>
+                <div class="learning-goals-book">
                   <h3 class="book-title">BOOK OF SERENDIP</h3>
                   <p class="book-text">
                       In this learning adventure, you are given the task to train to become a change agent. You will go on an adventure to discover four of the climate change tipping points of Earth. Your main training task is to rewrite the Book of Serendip. This is the Book of Earth which consists of everything that happened, happens and will happen to this planet. Right now, the future of Earth shown in the Book of Serendip is not sustainable for humanity. Therefore, more action needs to be taken. In each episode, you will have a specific task to do, which will materialize in a Book chapter. Every time a new chapter is added, the future of the planet will become more sustainable.
                   </p>
+                </div>
               </div>
               <div class="episode-container">
                 <div class="titles-and-text">
                     <div class="titles">
-                        <h2>EPISODES</h2>
-                        <h3>BOREAL FOREST</h3>
+                        <h2>EPISODES</h2>               
                     </div>
-                    <!-- Siirrä rainforest-text tänne -->
-                    <div class="rainforest-text">
-                      Virtual adventure through snow, woods and Northern Indigenous cultures The Boreal forest is influencing the global earth system in many ways. Your thinking of the sustainable decision-making will be challenged. You will see that things are more complex than they may seem. In the boreal forest you'll experience the effects of climate change for the Nordic ecosystem. What's your proposal for the sustainable future of the Boreal forest? How can you deal with your own emotions?
+                    <div class="rainforest-section">
+                        <div class="rainforest-text">
+                            <h3> 
+                            <img src="images/Icon1_Milton_O.png" alt="borealforest-icon" class="borealforest-icon">
+                            BOREAL FOREST</h3>
+                            Virtual adventure through snow, woods and Northern Indigenous cultures <br><br>The Boreal forest is influencing the global earth system in many ways. Your thinking of the sustainable decision-making will be challenged. You will see that things are more complex than they may seem. In the boreal forest you'll experience the effects of climate change for the Nordic ecosystem. What's your proposal for the sustainable future of the Boreal forest? How can you deal with your own emotions?
+                          </div>
+                        <img src="images/HY_Serendip-BOREALFOREST.jpg" alt="BorealForest" class="borealforest-image">
                     </div>
+                    
                 </div>
-                <div class="rainforest-section">
-                    <img src="images/HY_Serendip-BOREALFOREST.jpg" alt="BorealForest" class="borealforest-image">
-                </div>
+                
             </div>
       
           </div>
@@ -72,6 +81,10 @@
                   <p>RAINFOREST</p>
                   <p>OCEAN</p>
               </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
 <div class="footer-wrapper">
   <div class="footer">
     <div class="column column1">
@@ -94,6 +107,4 @@
   </div>
 </div>
 <div class="bottom-space"></div>
-<script src="script.js"></script>
-</body>
 </html>

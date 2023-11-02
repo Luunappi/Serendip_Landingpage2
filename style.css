@@ -1,18 +1,61 @@
+@font-face {
+  font-family: 'Gotham Narrow Bold';
+  src: url('fonts/GothamNarrowBold.otf');
+}
+
+@font-face {
+  font-family: 'Gotham Narrow Book';
+  src: url('fonts/GothamNarrowBook.otf');
+}
+
+@font-face {
+  font-family: 'Gotham Narrow Medium';
+  src: url('fonts/GothamNarrowMedium.otf');
+}
+
+
 body, html {
   margin: 0;
   padding: 0;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.5px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Gotham Narrow Book', sans-serif;
   line-height: 1.6;
   color: rgb(234, 234, 234);
+
+  height: 100%;
+  max-width: 100%;
+}
+
+html {
+  background-image: url('images/HY_Serendip_main-Horizontal.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
   background-color: rgb(12, 12, 12);
+}
+
+body {
   overflow-x: hidden;
 }
 
 .container {
   position: relative;
-  overflow: hidden;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 3;
+  transition: background-color 0.5s ease;
+}
+
+.top-bar.scrolled {
+  background-color: none;
 }
 
 .logo {
@@ -23,18 +66,7 @@ body, html {
   z-index: 4;
 }
 
-.owl-container {
-  position: fixed;
-  top: -10%;
-  left: 20%;
-  width: 60%;
-  height: 100vh; /* Tämä varmistaa, että pöllökuva kattaa koko näytön korkeuden */
-  background-image: url('images/HY_Serendip_main-Vertical.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  z-index: 1; /* Aseta z-indeksi, jotta se sijoittuu muiden elementtien alle */
-}
+
 
 .overlay {
   position: relative;
@@ -45,13 +77,13 @@ body, html {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   position: absolute;
   top: -30%;
-  left: 20%;
-  width: 60%;
-  height: 270px;
+  width: 100%;
+  height: 300px;
   z-index: 2;
 }
 
 h1 {
+  font-family: 'Gotham Narrow Bold', sans-serif;
   position: relative;
   margin-top: 35%;
   font-size: 9vw;
@@ -60,12 +92,26 @@ h1 {
 }
 
 .icons {
-  position: absolute; /* Muutetaan position-arvoksi absolute */
+  position: sticky; /* Muutetaan position-arvoksi absolute */
   left: 50%; /* Keskittää iconin vaakasuunnassa */
-  top: 100%; /* Määrittelee kuinka korkealle icon sijoitetaan, pienemmät arvot nostavat sitä ylöspäin */
+  top: 35px; /* Määrittelee kuinka korkealle icon sijoitetaan, pienemmät arvot nostavat sitä ylöspäin */
   transform: translate(-50%, -50%); /* Keskittää iconin suhteessa sen omiin dimensioihin, auttaa säilyttämään keskityksen myös kun ikonin paikkaa muutetaan */
   width: 20%;
-  z-index: 3;
+  z-index: 4;
+}
+
+.icons-top-bar {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15%;
+  z-index: 2;
+  display: none;
+}
+
+.icons-top-bar.scrolled {
+  display: block;
 }
 
 .content {
@@ -93,7 +139,7 @@ h1 {
 }
 
 .video-container {
-  width: 60%;
+  width: 70%;
   margin: 0 auto 50px auto;
   position: relative;
   overflow: hidden;
@@ -107,9 +153,11 @@ h1 {
 }
 
 .content-container {
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-children {
@@ -118,13 +166,43 @@ h1 {
 }
 
 .learning-goals {
-  font-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.learning-goals-main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  height: 400px;
+  overflow-x: hidden;
+}
+
+.learning-goals-book {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-image: url('images/Earth2.png');
+  background-size:auto 100%;
+  padding-left: 20%;
+  margin-left: -20%;
+  padding-right: 20%;
+  margin-right: -20%;
+  align-items: center;
+  height: 500px;
+}
+
+.learning-goals-title {
+  font-family: 'Gotham Narrow Medium', sans-serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+  padding-top: 50px;
+  padding-left: 20px;
+  align-self: flex-start;
 }
 
 .learning-text {
-  margin-top: -80px;
-  width: 50%;
-  margin-left: 50%;
+  width: 100%;
+  margin-left: 0%;
   font-size: 100%;
 }
 
@@ -140,18 +218,19 @@ h1 {
 .book-title, .book-text {
   position: relative;
   z-index: 2;
-  width: 100%;
 }
 
 .book-title {
-  margin-top: -290px;
-  font-size: 100%;
+  font-size: 32px;
+  font-family: 'Gotahm Narrow Medium', sans-serif;
+  align-self: flex-start;
+  padding-left: 20px;
+  padding-top: 70px;
 }
 
 .book-text {
-  margin-top: -50px;
-  width: 50%;
-  margin-left: 50%;
+  width: 100%;
+  margin-left: 0%;
   font-size: 100%;
 }
 
@@ -161,6 +240,8 @@ h1 {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 20px;
+  z-index: 3;
+  overflow-x: hidden;
 }
 
 
@@ -168,7 +249,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-right: 20px; /* Jos tarvitset lisää tilaa oikealla puolella */
+  width: 100%;
 }
 
 .titles {
@@ -178,33 +259,35 @@ h1 {
 }
 
 .rainforest-section {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Aseta takaisin flex-end, jotta kuva on oikealla puolella */
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 100%;
 }
 
 .rainforest-text {
   margin-top: 0px;
   width: 100%; /* Muutettu 40% -> 100%, jotta se ottaa koko saatavilla olevan leveyden */
-  font-size: 12px;
   margin-bottom: 50px;
   text-align: left;
 }
 
 .borealforest-image {
-  width: 500px;
-  margin-top: 180px;
-  margin-bottom: 10px;
+  width: 60vw;
 }
 
-.titles h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
+.borealforest-icon {
+  width: 16px;
 }
 
-.titles h3 {
-  font-size: 1.5em;
+h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-family: 'Gotham Narrow Medium', sans-serif;
+}
+
+h3 {
+  font-size: 28px;
+  font-family: 'Gotham Narrow Medium', sans-serif;
 }
 
 
@@ -212,8 +295,8 @@ h1 {
   margin-top: 100px;
   clear: both;
   text-align: center;
-  font-size: 150%;
-  font-weight: bold;
+  font-size: 32px;
+  font-family: 'Gotham Narrow Medium', sans-serif;
 }
 
 .episodes {
@@ -243,6 +326,9 @@ border-top: 1px solid orange; /* Oranssi viiva */
 margin: 0 auto; /* Keskitä viiva horisontaalisesti */
 max-width: 90%; /* Aseta viivan maksimileveys 90% näytön leveydestä */
 padding-top: 50px; /* Lisätään 50px tyhjää yläpuolelle */
+background-color: rgb(12, 12, 12);
+position: relative;
+z-index: 2;
 }
 
 .footer {
@@ -274,4 +360,83 @@ padding: 0 5%;
 .bottom-space {
   height: 50px;
   border-bottom: none; /* Poistetaan alin oranssi viiva */
+}
+
+/* Overrites for mobile devices */
+@media screen and (max-width: 768px) {
+
+  html {
+    background-image: url('images/HY_Serendip_main-Vertical.jpg');
+  } 
+
+  .logo {
+    width: 100px;
+  }
+
+  .centered-text {
+    width: 80%;
+  }
+
+  .top-bar.scrolled {
+    background-color: rgb(12, 12, 12);
+  }
+
+
+  .video-container {
+    width: 100%;
+  }
+
+  .content-container {
+    width: 80%;
+  }
+
+  .learning-goals-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .learning-goals-title {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+
+  .learning-goals-book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .book-title {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+
+
+
+  .episode-container {
+    flex-direction: column;
+
+  }
+
+  .rainforest-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .borealforest-image {
+    width: 100vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .icons-gradient {
+    top: -50px;
+    left: 0%;
+    width: 100%;
+  }
+
 }
