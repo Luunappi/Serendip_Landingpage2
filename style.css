@@ -104,13 +104,13 @@ h1 {
   top: 30px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 15%;
+  width: 20%;
   z-index: 2;
   display: none;
 }
 
 .icons-top-bar.scrolled {
-  display: block;
+  display: none;
 }
 
 .content {
@@ -118,7 +118,6 @@ h1 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
   background-attachment: fixed;
   z-index: 2;
-  background-color: rgb(12, 12, 12);
 }
 
 .centered-text {
@@ -156,6 +155,7 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
+  background-color: rgb(12, 12, 12);
 }
 
 .content-children {
@@ -237,9 +237,9 @@ h1 {
   flex-direction: row; /* Muutettu row-reverse -> row */
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 20px;
-  z-index: 3;
+  z-index: 4;
   overflow-x: hidden;
+  background-color: rgb(12, 12, 12);
 }
 
 
@@ -290,11 +290,18 @@ h3 {
 
 
 .upcoming-title {
-  margin-top: 100px;
+  padding-top: 100px;
   clear: both;
   text-align: center;
   font-size: 32px;
   font-family: 'Gotham Narrow Medium', sans-serif;
+}
+
+.bottom-bar {
+  background-color: rgb(12, 12, 12);
+  width: 100%;
+  position: relative;
+  z-index: 4;
 }
 
 .episodes {
@@ -371,7 +378,7 @@ padding-bottom: 5%;
 @media screen and (max-width: 768px) {
 
   html {
-    background-image: url('images/HY_Serendip_main-Vertical.jpg');
+    background-image: url('images/HY_Serendip_main-Vertical-cropped.jpg');
   } 
 
   .logo {
@@ -384,6 +391,9 @@ padding-bottom: 5%;
 
   .top-bar.scrolled {
     background-color: rgb(12, 12, 12);
+  }
+  .icons-top-bar.scrolled {
+    display: block;
   }
 
 
@@ -423,7 +433,7 @@ padding-bottom: 5%;
 
   .episode-container {
     flex-direction: column;
-
+    position: relative;
   }
 
   .rainforest-section {
@@ -441,6 +451,16 @@ padding-bottom: 5%;
   .footer {
     flex-direction: column-reverse;
     align-items: center;
+  }
+
+  .episode-titles p {
+    font-size: 16px;
+    
+  }
+  
+  .column1 .footer-logo {
+    align-items: center;
+    padding: 40px 50px 0;
   }
 
 
