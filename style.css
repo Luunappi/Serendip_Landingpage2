@@ -42,6 +42,7 @@ body {
 
 .container {
   position: relative;
+  background-color: rgb(12, 12, 12);
 }
 
 .top-bar {
