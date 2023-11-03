@@ -438,5 +438,10 @@ padding-bottom: 5%;
     margin-bottom: 0px;
   }
 
+  .footer {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
 
 }
