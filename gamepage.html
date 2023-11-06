@@ -1,94 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serendip</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .blur {
-            filter: blur(5px);
-            width: 100%;
-            height: 100%;
-        }
-        .pin-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-        .pin-input {
-            padding: 10px;
-            font-size: 20px;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-        }
-        .pin-submit {
-            padding: 10px;
-            font-size: 20px;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-            background-color: #4CAF50;
-            color: white;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="pin-container">
-        <input type="text" class="pin-input" placeholder="Enter pin code">
-        <button class="pin-submit">Submit</button>
-    </div>
-    <div class = "blur">
-    <div class="gamepage-container">
-        <iframe
-        class="game-iframe"
-        id="game-iframe"
-        title="Serendip game"
-        >
-        </iframe>
-    </div>
-</div>
-    <script>
-        const pinInput = document.querySelector(".pin-input");
-        const gameIframe = document.querySelector("#game-iframe");
-        const pinContainer = document.querySelector(".pin-container");
-        const pinSubmit = document.querySelector(".pin-submit");
-        const blur = document.querySelector(".blur");
 
-        pinSubmit.addEventListener("click", () => {
-            const pin = pinInput.value;
-            if (pin === "1234") {
-                gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
-                pinContainer.style.display = "none";
-                blur.style.filter = "none";
-            }
-        });
-    </script>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="style.css">
+            <title>Serendip Game Page</title>
+            <style>
 
-</body>
-</html>
-        const blur = document.querySelector(".blur");
-        pinInput.addEventListener("keyup", (e) => {
-            if (e.key === "Enter") {
-                const pin = e.target.value;
-                if (pin === "1234") {
+                body {
+                    background: radial-gradient(circle, rgb(46, 45, 45) 0%, rgb(0, 0, 0) 50%);
+                }
+                .blur {
+                    filter: blur(5px);
+                    width: 100%;
+                    height: 100%;
+                }
+                .pin-input {
+                    padding: 10px;
+                    font-size: 20px;
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                }
+                .pin-submit {
+                    padding: 10px;
+                    font-size: 20px;
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                    background-color: #4CAF50;
+                    color: white;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+                .game-info-container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: white;
+                    padding: 20px;
+                    text-align: center;
+                    z-index: 10000;
+                    display: none;
+                    color: black
+                }
+                .play-button {
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 10px 20px;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+                .gamepage-container {
+                    width: 100vw;
+                    height: 100vh;
+                    position: absolute;
+                    align-items: center;
+                }
+
+                .game-iframe {
+                    width: 80%;
+                    height: 80%;
+                    max-width: 1920px;
+                    max-height: 1080px;
+                    border: none;
+                    src: url("images/pre-game-image-placeholder.png");
+                    align-self: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .pin-container {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    z-index: 10000;
+                }
+
+                .gamepage-topbar {
+                    width: 100%;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: fixed;
+                }
+                
+            </style>
+        </head>
+        <body>
+            <div class = "gamepage-topbar">
+                <img src="images/HY_logo_W.png" alt="Logo" class="logo">
+                <h1>SERENDIP</h1>
+            </div>
+            <div class="pin-container">
+                <input type="text" class="pin-input" placeholder="Enter pin code">
+                <button class="pin-submit">Submit</button>
+            </div>
+            <div class="game-info-container">
+                <h2>Welcome to Serendip!</h2>
+                <p>Get ready to embark on an exciting adventure.</p>
+                <button class="play-button">Play</button>
+            </div>
+            <div class="blur">
+                <div class="gamepage-container">
+                    <iframe class="game-iframe" id="game-iframe" title="Serendip game"></iframe>
+                </div>
+            </div>
+
+            <script>
+                const pinInput = document.querySelector(".pin-input");
+                const gameIframe = document.querySelector("#game-iframe");
+                const pinContainer = document.querySelector(".pin-container");
+                const pinSubmit = document.querySelector(".pin-submit");
+                const blur = document.querySelector(".blur");
+                const gameInfoContainer = document.querySelector(".game-info-container");
+                const topbar = document.querySelector(".gamepage-topbar");
+
+                const displayGame = () => {
                     gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
                     pinContainer.style.display = "none";
                     blur.style.filter = "none";
+                    topbar.style.display = "none";
                 }
-            }
-        });
-    </script>
+                gameIframe.src = "";
+                const deBlur = () => {
+                    blur.style.filter = "none";
+                }
 
-</body>
-</html>
+                const removePinContainer = () => {
+                    pinContainer.style.display = "none";
+                }
+
+                const showInfoContainer = () => {
+                    
+                    gameInfoContainer.style.display = "block";
+                }
+
+                const removeInfoContainer = () => {
+                    gameInfoContainer.style.display = "none";
+                }
+
+                pinSubmit.addEventListener("click", () => {
+                    const pin = pinInput.value;
+                    if (pin === "1234") {
+                        removePinContainer();
+                        showInfoContainer();
+                    }
+                });
+
+                pinInput.addEventListener("keyup", (e) => {
+                    if (e.key === "Enter") {
+                        const pin = e.target.value;
+                        if (pin === "1234") {
+                            removePinContainer();
+                            showInfoContainer();
+                        }
+                    }
+                });
+
+                const playButton = document.querySelector(".play-button");
+                playButton.addEventListener("click", () => {
+                    displayGame();
+                    removeInfoContainer();
+                    deBlur();
+                });
+            </script>
+        </body>
+        </html>
