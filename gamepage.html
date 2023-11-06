@@ -30,11 +30,23 @@
             border: none;
             outline: none;
         }
+        .pin-submit {
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: #4CAF50;
+            color: white;
+            margin-left: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="pin-container">
         <input type="text" class="pin-input" placeholder="Enter pin code">
+        <button class="pin-submit">Submit</button>
     </div>
     <div class = "blur">
     <div class="gamepage-container">
@@ -50,6 +62,21 @@
         const pinInput = document.querySelector(".pin-input");
         const gameIframe = document.querySelector("#game-iframe");
         const pinContainer = document.querySelector(".pin-container");
+        const pinSubmit = document.querySelector(".pin-submit");
+        const blur = document.querySelector(".blur");
+
+        pinSubmit.addEventListener("click", () => {
+            const pin = pinInput.value;
+            if (pin === "1234") {
+                gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
+                pinContainer.style.display = "none";
+                blur.style.filter = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
         const blur = document.querySelector(".blur");
         pinInput.addEventListener("keyup", (e) => {
             if (e.key === "Enter") {
