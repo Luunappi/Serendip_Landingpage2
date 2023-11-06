@@ -379,6 +379,20 @@ padding-bottom: 5%;
   border-bottom: none; /* Poistetaan alin oranssi viiva */
 }
 
+.gamepage-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  align-items: center;
+}
+
+.game-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  src: "images/pre-game-image-placeholder.png";
+}
+
 /* Overrites for mobile devices */
 @media screen and (max-width: 768px) {
 
