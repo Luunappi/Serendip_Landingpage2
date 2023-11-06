@@ -121,8 +121,8 @@ h1 {
 .content {
   position: relative;
   background: linear-gradient(to bottom, rgba(12, 12, 12, 1) 0%, rgba(12, 12, 12, 1) 100%);
-  background-attachment: fixed;
   z-index: 2;
+  width: 100%;
 }
 
 .centered-text {
@@ -160,7 +160,6 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: rgb(12, 12, 12);
 }
 
 .content-children {
@@ -244,7 +243,6 @@ h1 {
   align-items: flex-start;
   z-index: 4;
   overflow-x: hidden;
-  background-color: rgb(12, 12, 12);
 }
 
 
@@ -384,6 +382,7 @@ padding-bottom: 5%;
 
   html {
     background-image: url('images/HY_Serendip_main-Vertical-cropped.jpg');
+    background-attachment:scroll;
   } 
 
   .logo {
