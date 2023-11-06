@@ -8,6 +8,8 @@
     <style>
         .blur {
             filter: blur(5px);
+            width: 100%;
+            height: 100%;
         }
         .pin-container {
             position: fixed;
@@ -55,7 +57,7 @@
                 if (pin === "1234") {
                     gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
                     pinContainer.style.display = "none";
-                    blur.classList.remove("blur");
+                    blur.style.filter = "none";
                 }
             }
         });
