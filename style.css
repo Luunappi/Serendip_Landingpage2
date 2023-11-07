@@ -17,7 +17,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 0.5px;
   font-family: 'Gotham Narrow Book', sans-serif;
   line-height: 1.6;
@@ -43,6 +43,11 @@ body {
 .container {
   position: relative;
   margin-top: 25%;
+  width: 100%;
+}
+
+.gamepage-container {
+  position: relative;
   width: 100%;
 }
 
@@ -259,24 +264,26 @@ h1 {
   margin-top: 100px;
 }
 
-.rainforest-section {
+.episode-section {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 40% 60%;
   width: 100%;
+  margin-top:100px;
 }
 
-.rainforest-text {
+.episode-text {
   margin-top: 0px;
-  width: 100%; /* Muutettu 40% -> 100%, jotta se ottaa koko saatavilla olevan leveyden */
+  width: 90%;
   margin-bottom: 50px;
   text-align: left;
 }
 
-.borealforest-image {
+.episode-image {
   width: 60vw;
+  height: auto;
 }
 
-.borealforest-icon {
+.episode-icon {
   width: 16px;
 }
 
@@ -440,13 +447,13 @@ padding-bottom: 5%;
     position: relative;
   }
 
-  .rainforest-section {
+  .episode-section {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .borealforest-image {
+  .episode-image {
     width: 100vw;
     margin-top: 0px;
     margin-bottom: 0px;

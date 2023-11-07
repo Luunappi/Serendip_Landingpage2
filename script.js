@@ -12,5 +12,6 @@ const observer = new IntersectionObserver(
     threshold: [1]
    }
 );
-
-observer.observe(icon);
+if (icon != null ) {
+  observer.observe(icon);
+}
