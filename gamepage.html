@@ -126,6 +126,7 @@
                 const blur = document.querySelector(".blur");
                 const gameInfoContainer = document.querySelector(".game-info-container");
                 const topbar = document.querySelector(".gamepage-topbar");
+                const PIN = "2008"; // Found this from source? Nice job hackerman.
 
                 const displayGame = () => {
                     gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
@@ -153,7 +154,7 @@
 
                 pinSubmit.addEventListener("click", () => {
                     const pin = pinInput.value;
-                    if (pin === "1234") {
+                    if (pin === PIN) {
                         removePinContainer();
                         showInfoContainer();
                     }
@@ -162,7 +163,7 @@
                 pinInput.addEventListener("keyup", (e) => {
                     if (e.key === "Enter") {
                         const pin = e.target.value;
-                        if (pin === "1234") {
+                        if (pin === PIN) {
                             removePinContainer();
                             showInfoContainer();
                         }

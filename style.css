@@ -1,34 +1,33 @@
 @font-face {
-  font-family: 'Gotham Narrow Bold';
-  src: url('fonts/GothamNarrowBold.otf');
+  font-family: "Gotham Narrow Bold";
+  src: url("fonts/GothamNarrowBold.otf");
 }
 
 @font-face {
-  font-family: 'Gotham Narrow Book';
-  src: url('fonts/GothamNarrowBook.otf');
+  font-family: "Gotham Narrow Book";
+  src: url("fonts/GothamNarrowBook.otf");
 }
 
 @font-face {
-  font-family: 'Gotham Narrow Medium';
-  src: url('fonts/GothamNarrowMedium.otf');
+  font-family: "Gotham Narrow Medium";
+  src: url("fonts/GothamNarrowMedium.otf");
 }
 
-
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-size: 18px;
   letter-spacing: 0.5px;
-  font-family: 'Gotham Narrow Book', sans-serif;
+  font-family: "Gotham Narrow Book", sans-serif;
   line-height: 1.6;
   color: rgb(234, 234, 234);
   overflow-x: hidden;
   height: 100%;
-
 }
 
 html {
-  background-image: url('images/HY_Serendip_main-Horizontal.jpg');
+  background-image: url("images/HY_Serendip_main-Horizontal.jpg");
   background-size: contain;
   background-position: center top;
   background-repeat: no-repeat;
@@ -38,7 +37,6 @@ html {
 body {
   width: 100%;
 }
-
 
 .container {
   position: relative;
@@ -73,8 +71,6 @@ body {
   z-index: 3;
 }
 
-
-
 .overlay {
   position: relative;
   z-index: 2;
@@ -82,7 +78,11 @@ body {
 }
 
 .icons-gradient {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(12, 12, 12, 1) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(12, 12, 12, 1) 100%
+  );
   position: absolute;
   width: 100%;
   height: 100%;
@@ -90,21 +90,24 @@ body {
 }
 
 h1 {
-  font-family: 'Gotham Narrow Bold', sans-serif;
+  font-family: "Gotham Narrow Bold", sans-serif;
   position: relative;
   font-size: 9vw;
   text-align: center;
   z-index: 3;
   line-height: 0;
-  top:50%;
+  top: 50%;
 }
 
 .icons {
   position: sticky; /* Muutetaan position-arvoksi absolute */
   left: 50%; /* Keskittää iconin vaakasuunnassa */
   top: 35px;
- /* Määrittelee kuinka korkealle icon sijoitetaan, pienemmät arvot nostavat sitä ylöspäin */
-  transform: translate(-50%, -50%); /* Keskittää iconin suhteessa sen omiin dimensioihin, auttaa säilyttämään keskityksen myös kun ikonin paikkaa muutetaan */
+  /* Määrittelee kuinka korkealle icon sijoitetaan, pienemmät arvot nostavat sitä ylöspäin */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Keskittää iconin suhteessa sen omiin dimensioihin, auttaa säilyttämään keskityksen myös kun ikonin paikkaa muutetaan */
   width: 20%;
   z-index: 4;
 }
@@ -125,7 +128,11 @@ h1 {
 
 .content {
   position: relative;
-  background: linear-gradient(to bottom, rgba(12, 12, 12, 1) 0%, rgba(12, 12, 12, 1) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 12, 12, 1) 0%,
+    rgba(12, 12, 12, 1) 100%
+  );
   z-index: 2;
   width: 100%;
 }
@@ -143,6 +150,10 @@ h1 {
   color: rgb(214, 143, 13);
   font-weight: bold;
   text-decoration: none;
+}
+
+.game-info {
+  margin-top: 5%;
 }
 
 .video-container {
@@ -188,8 +199,8 @@ h1 {
 .learning-goals-book {
   display: grid;
   grid-template-columns: 50% 50%;
-  background-image: url('images/Earth2.png');
-  background-size:auto 100%;
+  background-image: url("images/Earth2.png");
+  background-size: auto 100%;
   padding-left: 20%;
   margin-left: -20%;
   padding-right: 20%;
@@ -199,7 +210,7 @@ h1 {
 }
 
 .learning-goals-title {
-  font-family: 'Gotham Narrow Medium', sans-serif;
+  font-family: "Gotham Narrow Medium", sans-serif;
   font-size: 32px;
   margin-bottom: 10px;
   padding-top: 50px;
@@ -222,14 +233,15 @@ h1 {
   z-index: 1;
 }
 
-.book-title, .book-text {
+.book-title,
+.book-text {
   position: relative;
   z-index: 2;
 }
 
 .book-title {
   font-size: 32px;
-  font-family: 'Gotahm Narrow Medium', sans-serif;
+  font-family: "Gotahm Narrow Medium", sans-serif;
   align-self: flex-start;
   padding-left: 20px;
   padding-top: 70px;
@@ -250,7 +262,6 @@ h1 {
   overflow-x: hidden;
 }
 
-
 .titles-and-text {
   display: flex;
   flex-direction: column;
@@ -268,7 +279,7 @@ h1 {
   display: grid;
   grid-template-columns: 40% 60%;
   width: 100%;
-  margin-top:100px;
+  margin-top: 100px;
 }
 
 .episode-text {
@@ -290,21 +301,20 @@ h1 {
 h2 {
   font-size: 32px;
   margin-bottom: 10px;
-  font-family: 'Gotham Narrow Medium', sans-serif;
+  font-family: "Gotham Narrow Medium", sans-serif;
 }
 
 h3 {
   font-size: 28px;
-  font-family: 'Gotham Narrow Medium', sans-serif;
+  font-family: "Gotham Narrow Medium", sans-serif;
 }
-
 
 .upcoming-title {
   padding-top: 100px;
   clear: both;
   text-align: center;
   font-size: 32px;
-  font-family: 'Gotham Narrow Medium', sans-serif;
+  font-family: "Gotham Narrow Medium", sans-serif;
 }
 
 .bottom-bar {
@@ -312,6 +322,7 @@ h3 {
   width: 100%;
   position: relative;
   z-index: 4;
+  margin-bottom: 10%;
 }
 
 .episodes {
@@ -345,18 +356,18 @@ h3 {
 }
 
 .footer-wrapper {
-width: 100%;
-padding-top: 50px; /* Lisätään 50px tyhjää yläpuolelle */
-background-color: rgb(12, 12, 12);
-position: relative;
-z-index: 2;
+  width: 100%;
+  padding-top: 50px; /* Lisätään 50px tyhjää yläpuolelle */
+  background-color: rgb(12, 12, 12);
+  position: relative;
+  z-index: 2;
 }
 
 .footer {
-display: flex;
-justify-content: space-between;
-padding: 0 5%;
-padding-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  padding-bottom: 5%;
 }
 
 .column {
@@ -386,11 +397,10 @@ padding-bottom: 5%;
 
 /* Overrites for mobile devices */
 @media screen and (max-width: 768px) {
-
   html {
-    background-image: url('images/HY_Serendip_main-Vertical-cropped.jpg');
-    background-attachment:scroll;
-  } 
+    background-image: url("images/HY_Serendip_main-Vertical-cropped.jpg");
+    background-attachment: scroll;
+  }
 
   .logo {
     width: 100px;
@@ -406,7 +416,6 @@ padding-bottom: 5%;
   .icons-top-bar.scrolled {
     display: block;
   }
-
 
   .video-container {
     width: 100%;
@@ -440,8 +449,6 @@ padding-bottom: 5%;
     padding-left: 0px;
   }
 
-
-
   .episode-container {
     flex-direction: column;
     position: relative;
@@ -466,13 +473,10 @@ padding-bottom: 5%;
 
   .episode-titles p {
     font-size: 16px;
-    
   }
-  
+
   .column1 .footer-logo {
     align-items: center;
     padding: 40px 50px 0;
   }
-
-
 }
