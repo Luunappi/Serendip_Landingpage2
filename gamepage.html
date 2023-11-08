@@ -1,181 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Serendip Game Page</title>
+    <style>
+      body {
+        background-color: rgb(12, 12, 12);
+      }
+      h1 {
+        font-size: 5vw;
+      }
+      .blur {
+        filter: blur(5px);
+        width: 100%;
+        height: 100%;
+      }
+      .pin-input {
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+      }
+      .pin-submit {
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #4caf50;
+        color: white;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      .game-info-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        z-index: 10;
+        display: none;
+        color: black;
+      }
+      .play-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .gamepage-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        align-items: center;
+      }
 
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style.css">
-            <title>Serendip Game Page</title>
-            <style>
+      .game-iframe {
+        width: 80%;
+        height: 80%;
+        max-width: 1920px;
+        max-height: 1080px;
+        border: none;
+        align-self: center;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0%);
+      }
+      .pin-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        z-index: 20;
+      }
 
-                body {
-                    background: radial-gradient(circle, rgb(46, 45, 45) 0%, rgb(0, 0, 0) 50%);
-                }
-                .blur {
-                    filter: blur(5px);
-                    width: 100%;
-                    height: 100%;
-                }
-                .pin-input {
-                    padding: 10px;
-                    font-size: 20px;
-                    border-radius: 5px;
-                    border: none;
-                    outline: none;
-                }
-                .pin-submit {
-                    padding: 10px;
-                    font-size: 20px;
-                    border-radius: 5px;
-                    border: none;
-                    outline: none;
-                    background-color: #4CAF50;
-                    color: white;
-                    margin-left: 10px;
-                    cursor: pointer;
-                }
-                .game-info-container {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: white;
-                    padding: 20px;
-                    text-align: center;
-                    z-index: 10000;
-                    display: none;
-                    color: black
-                }
-                .play-button {
-                    background-color: #4CAF50;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    padding: 10px 20px;
-                    font-size: 20px;
-                    cursor: pointer;
-                }
-                .gamepage-container {
-                    width: 100vw;
-                    height: 100vh;
-                    position: absolute;
-                    align-items: center;
-                }
+      .gamepage-topbar {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
 
-                .game-iframe {
-                    width: 80%;
-                    height: 80%;
-                    max-width: 1920px;
-                    max-height: 1080px;
-                    border: none;
-                    src: url("images/pre-game-image-placeholder.png");
-                    align-self: center;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-                .pin-container {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: white;
-                    padding: 20px;
-                    border-radius: 10px;
-                    text-align: center;
-                    z-index: 10000;
-                }
+      .overlay {
+        position: fixed;
 
-                .gamepage-topbar {
-                    width: 100%;
-                    padding: 10px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: fixed;
-                }
-                
-            </style>
-        </head>
-        <body>
-            <div class = "gamepage-topbar">
-                <img src="images/HY_logo_W.png" alt="Logo" class="logo">
-                <h1>SERENDIP</h1>
-            </div>
-            <div class="pin-container">
-                <input type="text" class="pin-input" placeholder="Enter pin code">
-                <button class="pin-submit">Submit</button>
-            </div>
-            <div class="game-info-container">
-                <h2>Welcome to Serendip!</h2>
-                <p>Get ready to embark on an exciting adventure.</p>
-                <button class="play-button">Play</button>
-            </div>
-            <div class="blur">
-                <div class="gamepage-container">
-                    <iframe class="game-iframe" id="game-iframe" title="Serendip game"></iframe>
-                </div>
-            </div>
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(10px);
+        z-index: 20;
+      }
 
-            <script>
-                const pinInput = document.querySelector(".pin-input");
-                const gameIframe = document.querySelector("#game-iframe");
-                const pinContainer = document.querySelector(".pin-container");
-                const pinSubmit = document.querySelector(".pin-submit");
-                const blur = document.querySelector(".blur");
-                const gameInfoContainer = document.querySelector(".game-info-container");
-                const topbar = document.querySelector(".gamepage-topbar");
-                const PIN = "2008"; // Found this from source? Nice job hackerman.
+      .info {
+        position: relative;
+        width: auto;
+        max-width: 60%;
+        max-height: 90%;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+        background-color: rgb(255, 255, 255);
+        text-align: left;
+        padding: 10px 40px;
+        font-size: 14px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      }
 
-                const displayGame = () => {
-                    gameIframe.src = "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
-                    pinContainer.style.display = "none";
-                    blur.style.filter = "none";
-                    topbar.style.display = "none";
-                }
-                gameIframe.src = "";
-                const deBlur = () => {
-                    blur.style.filter = "none";
-                }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 10px;
+        color: black;
+        padding: 0;
+        margin: 0;
+      }
 
-                const removePinContainer = () => {
-                    pinContainer.style.display = "none";
-                }
+      #game-instructions-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: auto;
+      }
 
-                const showInfoContainer = () => {
-                    
-                    gameInfoContainer.style.display = "block";
-                }
+      #about-container {
+        max-width: 40%;
+      }
 
-                const removeInfoContainer = () => {
-                    gameInfoContainer.style.display = "none";
-                }
+      #title-and-infos {
+        display: grid;
+        align-items: center;
+        grid-template-areas: "maintitle maintitle" "about instructions";
+        grid-template-columns: 50% 50%;
+      }
 
-                pinSubmit.addEventListener("click", () => {
-                    const pin = pinInput.value;
-                    if (pin === PIN) {
-                        removePinContainer();
-                        showInfoContainer();
-                    }
-                });
+      #title-and-infos > maintitle {
+        grid-area: maintitle;
+      }
+      #title-and-infos > about {
+        grid-area: about;
+        text-align: right;
+        padding-right: 30px;
+      }
+      #title-and-infos > instructions {
+        grid-area: instructions;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pin-container">
+      <input type="text" class="pin-input" placeholder="Enter pin code" />
+      <button class="pin-submit">Submit</button>
+    </div>
+    <div class="overlay" id="info-overlay" style="display: none">
+      <div class="info" id="about-container">
+        <h4>Book of Serendip</h4>
+        <p>
+          Use the Book of Serendip to connect the dots of your learning and do
+          all your tasks. Click the link to access the Book. You will need to
+          create an account to be able to edit the Book. Follow the instructions
+          in the Book to learn what you need to do.
+        </p>
+        <h4>Learning Task for Episode 1</h4>
+        <p>
+          In this episode, your task is to explore the environment and uncover
+          the challenges facing boreal forests. Interaction with locals will
+          help you form a value-based vision for the future. Additionally, you
+          will create an action plan to ensure the realization of your vision.
+        </p>
+        <button class="close" id="close-info">X</button>
+      </div>
+    </div>
+    <div class="overlay" id="instructions-overlay" style="display: none">
+      <div class="info">
+        <h4>GAME INSTRUCTIONS</h4>
+        <div id="game-instructions-container">
+          <div>
+            <strong>GETTING STARTED</strong>
+            <ul>
+              <li>
+                <strong>Registeration and Login:</strong>  Click "Start Game" and log in. If you're
+                a new player, register by entering your email address and
+                choosing a name for your game character.
+              </li>
+              <li>
+                <strong>Hosring and Joining:</strong>  One player acts as the host. They select
+                "Host Game" from the main menu, name the game, choose the
+                maximum number of players, and click "Host Game". Other players
+                join the game by selecting "Join Game".
+              </li>
+              <li>
+                <strong>Lobby Area:</strong>  The host and other players wait in the Lobby area.
+                You can open the in-game menu by pressing TAB.
+              </li>
+              <li>
+                <strong>Selection:</strong>  The host chooses the playable level or episode
+                from the in-game menu in the Lobby.
+              </li>
+              <li>
+                <strong>Start the Game:</strong>  Once everyone is ready, the host clicks "Start
+                Game".
+              </li>
+            </ul>
+            <strong>CONTROLS</strong>
+            <ul>
+              <li><strong> W, S, A, D:</strong>  Movement</li>
+              <li><strong>Shift + W: </strong> Sprinting</li>
+              <li>Space: Jumping</li>
+              <li>
+                <strong> mouse button + mouse movement:</strong>  Change direction of view and
+                movement
+              </li>
+              <li><strong>TAB:</strong>  Choose Episode (Host can do in Lobby)</li>
+              <li><strong>C:</strong>  Customice Character (All can do in Lobby)</li>
+              <li><strong>E:</strong>  Interact (in game)</li>
+              <li><strong>Esc/P:</strong>  Settings (in game)</li>
+            </ul>
+          </div>
+          <div>
+            <strong>KEY SYMBOLS</strong>
+            <ol>
+              <li><strong>Info:</strong> Provides factual information.</li>
+              <li><strong> Portals allow you...</strong> </li>
+              <li><strong>Dialog:</strong>  Dialog icons indicate...</li>
+            </ol>
 
-                pinInput.addEventListener("keyup", (e) => {
-                    if (e.key === "Enter") {
-                        const pin = e.target.value;
-                        if (pin === PIN) {
-                            removePinContainer();
-                            showInfoContainer();
-                        }
-                    }
-                });
+            <strong>KEY CHARACTERS</strong>
+            <ul>
+              <li>
+                <strong> Madida:</strong> Gaia, mother earth, a wise mystical character, who
+                provides tips and guidance along the way.
+              </li>
+              <li>
+                <strong>Owl: </strong> The symbol of the University of Helsinki, wisdom and
+                science. Guides and leads the player through the game.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="close" id="close-instructions">X</button>
+      </div>
+    </div>
+    <div class="blur">
+      <div class="gamepage-topbar">
+        <img src="images/HY_logo_W.png" alt="Logo" class="logo" />
+        <section id="title-and-infos">
+          <maintitle><h1>SERENDIP</h1></maintitle>
+          <maintitle></maintitle>
+          <about id="about"> About </about>
+          <instructions id="instructions"> Instructions </instructions>
+        </section>
+      </div>
+      <div class="gamepage-container">
+        <div class="game-info-container">
+          <h2>Welcome to Serendip!</h2>
+          <p>Get ready to embark on an exciting adventure.</p>
+          <button class="play-button">Play</button>
+        </div>
+        <iframe
+          allowfullscreen="true"
+          class="game-iframe"
+          id="game-iframe"
+          title="Serendip game"
+          src
+        ></iframe>
+      </div>
+    </div>
 
-                const playButton = document.querySelector(".play-button");
-                playButton.addEventListener("click", () => {
-                    displayGame();
-                    removeInfoContainer();
-                    deBlur();
-                });
-            </script>
-        </body>
-        </html>
+    <script>
+      const pinInput = document.querySelector(".pin-input");
+      const gameIframe = document.querySelector("#game-iframe");
+      const pinContainer = document.querySelector(".pin-container");
+      const pinSubmit = document.querySelector(".pin-submit");
+      const blur = document.querySelector(".blur");
+      const gameInfoContainer = document.querySelector(".game-info-container");
+      const topbar = document.querySelector(".gamepage-topbar");
+      const PIN = "2008"; // Found this from source? Nice job hackerman.
+      gameIframe.src = "images/Earth.png";
+
+      const displayGame = () => {
+        gameIframe.src =
+          "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
+        pinContainer.style.display = "none";
+      };
+      const deBlur = () => {
+        blur.style.filter = "none";
+      };
+
+      const removePinContainer = () => {
+        pinContainer.style.display = "none";
+        deBlur();
+      };
+
+      const showInfoContainer = () => {
+        gameInfoContainer.style.display = "block";
+      };
+
+      const removeInfoContainer = () => {
+        gameInfoContainer.style.display = "none";
+      };
+
+      pinSubmit.addEventListener("click", () => {
+        const pin = pinInput.value;
+        if (pin === PIN) {
+          removePinContainer();
+          showInfoContainer();
+        }
+      });
+
+      pinInput.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+          const pin = e.target.value;
+          if (pin === PIN) {
+            removePinContainer();
+            showInfoContainer();
+          }
+        }
+      });
+
+      const playButton = document.querySelector(".play-button");
+      playButton.addEventListener("click", () => {
+        displayGame();
+        removeInfoContainer();
+        deBlur();
+      });
+
+      document.getElementById("about").addEventListener("click", function () {
+        document.getElementById("info-overlay").style.display = "block";
+      });
+
+      document
+        .getElementById("instructions")
+        .addEventListener("click", function () {
+          document.getElementById("instructions-overlay").style.display =
+            "block";
+        });
+
+      document
+        .getElementById("close-info")
+        .addEventListener("click", function () {
+          document.getElementById("info-overlay").style.display = "none";
+        });
+
+      document
+        .getElementById("close-instructions")
+        .addEventListener("click", function () {
+          document.getElementById("instructions-overlay").style.display =
+            "none";
+        });
+    </script>
+  </body>
+</html>
