@@ -137,6 +137,7 @@
         display: grid;
         grid-template-columns: 50% 50%;
         padding: auto;
+        height: 80%;
       }
 
       #about-container {
@@ -161,6 +162,21 @@
       #title-and-infos > instructions {
         grid-area: instructions;
         text-align: left;
+      }
+
+      @media screen and (max-width: 768px) {
+       #about-container {
+        overflow-y: scroll;
+        width: 80%;
+        max-width: 80%;
+       }
+        #game-instructions-container {
+          display: flex;
+          flex-direction: column;
+          overflow-y: scroll;
+    
+        }
+        
       }
     </style>
   </head>
