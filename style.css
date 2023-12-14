@@ -112,6 +112,16 @@ h1 {
   z-index: 4;
 }
 
+.award-icon {
+  width: 100px;
+}
+
+.awards-wrapper {
+  display: flex;
+  justify-content: center;
+
+}
+
 .icons-top-bar {
   position: fixed;
   top: 30px;
@@ -171,7 +181,7 @@ h1 {
 }
 
 .content-container {
-  width: 70%;
+  width: 75%;
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -277,9 +287,10 @@ h1 {
 
 .episode-section {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 35% 65%;
   width: 100%;
   margin-top: 100px;
+  overflow: hidden;
 }
 
 .episode-text {
@@ -289,9 +300,14 @@ h1 {
   text-align: left;
 }
 
-.episode-image {
-  width: 60vw;
+.episode-image-wrapper {
   height: auto;
+}
+
+.episode-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .episode-icon {
@@ -368,6 +384,11 @@ h3 {
   justify-content: space-between;
   padding: 0 5%;
   padding-bottom: 5%;
+}
+
+.blog-link {
+  color: rgb(214, 143, 13);
+  text-decoration: none;
 }
 
 .column {
