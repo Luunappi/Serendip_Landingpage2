@@ -1,404 +1,415 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Serendip Game Page</title>
-    <style>
-      body {
-        background-color: rgb(12, 12, 12);
-      }
-      h1 {
-        font-size: 5vw;
-      }
-      .blur {
-        filter: blur(5px);
-        width: 100%;
-        height: 100%;
-      }
-      .pin-input {
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-      }
-      .pin-submit {
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        background-color: #4caf50;
-        color: white;
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      .game-info-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        text-align: center;
-        z-index: 10;
-        display: none;
-        color: black;
-      }
-      .play-button {
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      .gamepage-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        align-items: center;
-      }
 
-      .game-iframe {
-        width: 80%;
-        height: 80%;
-        max-width: 1920px;
-        max-height: 1080px;
-        border: none;
-        align-self: center;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%, 0%);
-      }
-      .pin-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: white;
-        padding: 20px;
-        text-align: center;
-        z-index: 20;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Serendip Game Page</title>
+  <style>
+    body {
+      background-color: rgb(12, 12, 12);
+    }
 
-      .gamepage-topbar {
-        width: 100%;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
+    h1 {
+      font-size: 5vw;
+    }
 
-      .overlay {
-        position: fixed;
+    .blur {
+      filter: blur(5px);
+      width: 100%;
+      height: 100%;
+    }
 
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(10px);
-        z-index: 20;
-      }
+    .pin-input {
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
 
-      .info {
-        position: relative;
-        width: auto;
-        max-width: 60%;
-        max-height: 90%;
-        height: auto;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: black;
-        background-color: rgb(255, 255, 255);
-        text-align: left;
-        padding: 10px 40px;
-        font-size: 14px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-        overflow-y: scroll;
-      }
+    .pin-submit {
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: #4caf50;
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+    }
 
-      .close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        font-size: 10px;
-        color: black;
-        padding: 0;
-        margin: 0;
-      }
+    .game-info-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      z-index: 10;
+      display: none;
+      color: black;
+    }
 
-      #game-instructions-container {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        padding: auto;
-        height: 80%;
-      }
+    .play-button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
+    .gamepage-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      align-items: center;
+    }
+
+    .game-iframe {
+      width: 80%;
+      height: 80%;
+      max-width: 1920px;
+      max-height: 1080px;
+      border: none;
+      align-self: center;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+
+    .pin-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+      z-index: 20;
+    }
+
+    .gamepage-topbar {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: fixed;
+
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      z-index: 20;
+    }
+
+    .info {
+      position: relative;
+      width: auto;
+      max-width: 60%;
+      max-height: 90%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      background-color: rgb(255, 255, 255);
+      text-align: left;
+      padding: 10px 40px;
+      font-size: 14px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      overflow-y: scroll;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 10px;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
+
+    #game-instructions-container {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      padding: auto;
+      height: 80%;
+    }
+
+    #about-container {
+      max-width: 40%;
+    }
+
+    #title-and-infos {
+      display: grid;
+      align-items: center;
+      grid-template-areas: "maintitle maintitle" "about instructions";
+      grid-template-columns: 50% 50%;
+    }
+
+    #title-and-infos>maintitle {
+      grid-area: maintitle;
+    }
+
+    #title-and-infos>about {
+      grid-area: about;
+      text-align: right;
+      padding-right: 30px;
+    }
+
+    #title-and-infos>instructions {
+      grid-area: instructions;
+      text-align: left;
+    }
+
+    @media screen and (max-width: 768px) {
       #about-container {
-        max-width: 40%;
-      }
-
-      #title-and-infos {
-        display: grid;
-        align-items: center;
-        grid-template-areas: "maintitle maintitle" "about instructions";
-        grid-template-columns: 50% 50%;
-      }
-
-      #title-and-infos > maintitle {
-        grid-area: maintitle;
-      }
-      #title-and-infos > about {
-        grid-area: about;
-        text-align: right;
-        padding-right: 30px;
-      }
-      #title-and-infos > instructions {
-        grid-area: instructions;
-        text-align: left;
-      }
-
-      @media screen and (max-width: 768px) {
-       #about-container {
         overflow-y: scroll;
         width: 80%;
         max-width: 80%;
-       }
-        #game-instructions-container {
-          display: flex;
-          flex-direction: column;
-    
-        }
-        
       }
 
-      @media (hover: none) {
-        #mobile-error-overlay {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-        .info {
-          width: 100%;
-          height: 100%;
-        }
+      #game-instructions-container {
+        display: flex;
+        flex-direction: column;
+
       }
-    </style>
-  </head>
-  <body>
-    <div class="pin-container">
-      <input type="text" class="pin-input" placeholder="Enter pin code" />
-      <button class="pin-submit">Submit</button>
-    </div>
-    <div class="overlay" id="mobile-error-overlay" style="display: none;">
-      <div class="info">
-        <h4>Mobile Device Warning</h4>
-        <p>This website currently only supports desktop devices.</p>
-      </div>
-    </div>
-    <div class="overlay" id="info-overlay" style="display: none">
-      <div class="info" id="about-container">
-        <h4>Book of Serendip</h4>
-        <p>
-          Use the Book of Serendip to connect the dots of your learning and do
-          all your tasks. Click the link to access the Book. You will need to
-          create an account to be able to edit the Book. Follow the instructions
-          in the Book to learn what you need to do.
-        </p>
-        <h4>Learning Task for Episode 1</h4>
-        <p>
-          In this episode, your task is to explore the environment and uncover
-          the challenges facing boreal forests. Interaction with locals will
-          help you form a value-based vision for the future. Additionally, you
-          will create an action plan to ensure the realization of your vision.
-        </p>
-        <button class="close" id="close-info">X</button>
-      </div>
-    </div>
-    <div class="overlay" id="instructions-overlay" style="display: none">
-      <div class="info">
-        <h4>GAME INSTRUCTIONS</h4>
-        <div id="game-instructions-container">
-          <div>
-            <strong>GETTING STARTED</strong>
-            <ul>
-              <li>
-                <strong>Registeration and Login:</strong>  Click "Start Game" and log in. If you're
-                a new player, register by entering your email address and
-                choosing a name for your game character.
-              </li>
-              <li>
-                <strong>Hosring and Joining:</strong>  One player acts as the host. They select
-                "Host Game" from the main menu, name the game, choose the
-                maximum number of players, and click "Host Game". Other players
-                join the game by selecting "Join Game".
-              </li>
-              <li>
-                <strong>Lobby Area:</strong>  The host and other players wait in the Lobby area.
-                You can open the in-game menu by pressing TAB.
-              </li>
-              <li>
-                <strong>Selection:</strong>  The host chooses the playable level or episode
-                from the in-game menu in the Lobby.
-              </li>
-              <li>
-                <strong>Start the Game:</strong>  Once everyone is ready, the host clicks "Start
-                Game".
-              </li>
-            </ul>
-            <strong>CONTROLS</strong>
-            <ul>
-              <li><strong> W, S, A, D:</strong>  Movement</li>
-              <li><strong>Shift + W: </strong> Sprinting</li>
-              <li>Space: Jumping</li>
-              <li>
-                <strong> mouse button + mouse movement:</strong>  Change direction of view and
-                movement
-              </li>
-              <li><strong>TAB:</strong>  Choose Episode (Host can do in Lobby)</li>
-              <li><strong>C:</strong>  Customice Character (All can do in Lobby)</li>
-              <li><strong>E:</strong>  Interact (in game)</li>
-              <li><strong>Esc/P:</strong>  Settings (in game)</li>
-            </ul>
-          </div>
-          <div>
-            <strong>KEY SYMBOLS</strong>
-            <ol>
-              <li><strong>Info:</strong> Provides factual information.</li>
-              <li><strong> Portals allow you...</strong> </li>
-              <li><strong>Dialog:</strong>  Dialog icons indicate...</li>
-            </ol>
 
-            <strong>KEY CHARACTERS</strong>
-            <ul>
-              <li>
-                <strong> Madida:</strong> Gaia, mother earth, a wise mystical character, who
-                provides tips and guidance along the way.
-              </li>
-              <li>
-                <strong>Owl: </strong> The symbol of the University of Helsinki, wisdom and
-                science. Guides and leads the player through the game.
-              </li>
-            </ul>
-          </div>
+    }
+
+    @media (hover: none) {
+      #mobile-error-overlay {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .info {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pin-container">
+    <input type="text" class="pin-input" placeholder="Enter pin code" />
+    <button class="pin-submit">Submit</button>
+  </div>
+  <div class="overlay" id="mobile-error-overlay" style="display: none;">
+    <div class="info">
+      <h4>Mobile Device Warning</h4>
+      <p>This website currently only supports desktop devices.</p>
+    </div>
+  </div>
+  <div class="overlay" id="info-overlay" style="display: none">
+    <div class="info" id="about-container">
+      <h4>Book of Serendip</h4>
+      <p>
+        Use the Book of Serendip to connect the dots of your learning and do
+        all your tasks. Click the link to access the Book. You will need to
+        create an account to be able to edit the Book. Follow the instructions
+        in the Book to learn what you need to do.
+      </p>
+      <h4>Learning Task for Episode 1</h4>
+      <p>
+        In this episode, your task is to explore the environment and uncover
+        the challenges facing boreal forests. Interaction with locals will
+        help you form a value-based vision for the future. Additionally, you
+        will create an action plan to ensure the realization of your vision.
+      </p>
+      <button class="close" id="close-info">X</button>
+    </div>
+  </div>
+  <div class="overlay" id="instructions-overlay" style="display: none">
+    <div class="info">
+      <h4>GAME INSTRUCTIONS</h4>
+      <div id="game-instructions-container">
+        <div>
+          <strong>GETTING STARTED</strong>
+          <ul>
+            <li>
+              <strong>Registeration and Login:</strong> Click "Start Game" and log in. If you're
+              a new player, register by entering your email address and
+              choosing a name for your game character.
+            </li>
+            <li>
+              <strong>Hosring and Joining:</strong> One player acts as the host. They select
+              "Host Game" from the main menu, name the game, choose the
+              maximum number of players, and click "Host Game". Other players
+              join the game by selecting "Join Game".
+            </li>
+            <li>
+              <strong>Lobby Area:</strong> The host and other players wait in the Lobby area.
+              You can open the in-game menu by pressing TAB.
+            </li>
+            <li>
+              <strong>Selection:</strong> The host chooses the playable level or episode
+              from the in-game menu in the Lobby.
+            </li>
+            <li>
+              <strong>Start the Game:</strong> Once everyone is ready, the host clicks "Start
+              Game".
+            </li>
+          </ul>
+          <strong>CONTROLS</strong>
+          <ul>
+            <li><strong> W, S, A, D:</strong> Movement</li>
+            <li><strong>Shift + W: </strong> Sprinting</li>
+            <li>Space: Jumping</li>
+            <li>
+              <strong> mouse button + mouse movement:</strong> Change direction of view and
+              movement
+            </li>
+            <li><strong>TAB:</strong> Choose Episode (Host can do in Lobby)</li>
+            <li><strong>C:</strong> Customice Character (All can do in Lobby)</li>
+            <li><strong>E:</strong> Interact (in game)</li>
+            <li><strong>Esc/P:</strong> Settings (in game)</li>
+          </ul>
         </div>
-        <button class="close" id="close-instructions">X</button>
-      </div>
-    </div>
-    <div class="blur">
-      <div class="gamepage-topbar">
-        <img src="images/HY_logo_W.png" alt="Logo" class="logo" />
-        <section id="title-and-infos">
-          <maintitle><h1>SERENDIP</h1></maintitle>
-          <maintitle></maintitle>
-          <about id="about"> About </about>
-          <instructions id="instructions"> Instructions </instructions>
-        </section>
-      </div>
-      <div class="gamepage-container">
-        <div class="game-info-container">
-          <h2>Welcome to Serendip!</h2>
-          <p>Get ready to embark on an exciting adventure.</p>
-          <button class="play-button">Play</button>
+        <div>
+          <strong>KEY SYMBOLS</strong>
+          <ol>
+            <li><strong>Info:</strong> Provides factual information.</li>
+            <li><strong> Portals allow you...</strong> </li>
+            <li><strong>Dialog:</strong> Dialog icons indicate...</li>
+          </ol>
+
+          <strong>KEY CHARACTERS</strong>
+          <ul>
+            <li>
+              <strong> Madida:</strong> Gaia, mother earth, a wise mystical character, who
+              provides tips and guidance along the way.
+            </li>
+            <li>
+              <strong>Owl: </strong> The symbol of the University of Helsinki, wisdom and
+              science. Guides and leads the player through the game.
+            </li>
+          </ul>
         </div>
-        <iframe
-          allowfullscreen="true"
-          class="game-iframe"
-          id="game-iframe"
-          title="Serendip game"
-          src
-        ></iframe>
       </div>
+      <button class="close" id="close-instructions">X</button>
     </div>
+  </div>
+  <div class="blur">
+    <div class="gamepage-topbar">
+      <img src="images/HY_logo_W.png" alt="Logo" class="logo" />
+      <section id="title-and-infos">
+        <maintitle>
+          <h1>SERENDIP</h1>
+        </maintitle>
+        <maintitle></maintitle>
+        <about id="about"> About </about>
+        <instructions id="instructions"> Instructions </instructions>
+      </section>
+    </div>
+    <div class="gamepage-container">
+      <div class="game-info-container">
+        <h2>Welcome to Serendip!</h2>
+        <p>Get ready to embark on an exciting adventure.</p>
+        <button class="play-button">Play</button>
+      </div>
+      <iframe allowfullscreen="true" class="game-iframe" id="game-iframe" title="Serendip game" src></iframe>
+    </div>
+  </div>
 
-    <script>
-      const pinInput = document.querySelector(".pin-input");
-      const gameIframe = document.querySelector("#game-iframe");
-      const pinContainer = document.querySelector(".pin-container");
-      const pinSubmit = document.querySelector(".pin-submit");
-      const blur = document.querySelector(".blur");
-      const gameInfoContainer = document.querySelector(".game-info-container");
-      const topbar = document.querySelector(".gamepage-topbar");
-      const PIN = "2008"; // Found this from source? Nice job hackerman.
-      gameIframe.src = "images/Earth.png";
+  <script>
+    const pinInput = document.querySelector(".pin-input");
+    const gameIframe = document.querySelector("#game-iframe");
+    const pinContainer = document.querySelector(".pin-container");
+    const pinSubmit = document.querySelector(".pin-submit");
+    const blur = document.querySelector(".blur");
+    const gameInfoContainer = document.querySelector(".game-info-container");
+    const topbar = document.querySelector(".gamepage-topbar");
+    const PIN = "2008"; // Found this from source? Nice job hackerman.
+    gameIframe.src = "images/Earth.png";
 
-      const displayGame = () => {
-        gameIframe.src =
-          "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
-        pinContainer.style.display = "none";
-      };
-      const deBlur = () => {
-        blur.style.filter = "none";
-      };
+    const displayGame = () => {
+      gameIframe.src =
+        "https://share.arcware.cloud/share-02406715-194c-47b2-a2ac-ce52b9d424a3";
+      pinContainer.style.display = "none";
+    };
+    const deBlur = () => {
+      blur.style.filter = "none";
+    };
 
-      const removePinContainer = () => {
-        pinContainer.style.display = "none";
-        deBlur();
-      };
+    const removePinContainer = () => {
+      pinContainer.style.display = "none";
+      deBlur();
+    };
 
-      const showInfoContainer = () => {
-        gameInfoContainer.style.display = "block";
-      };
+    const showInfoContainer = () => {
+      gameInfoContainer.style.display = "block";
+    };
 
-      const removeInfoContainer = () => {
-        gameInfoContainer.style.display = "none";
-      };
+    const removeInfoContainer = () => {
+      gameInfoContainer.style.display = "none";
+    };
 
-      pinSubmit.addEventListener("click", () => {
-        const pin = pinInput.value;
+    pinSubmit.addEventListener("click", () => {
+      const pin = pinInput.value;
+      if (pin === PIN) {
+        removePinContainer();
+        showInfoContainer();
+      }
+    });
+
+    pinInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        const pin = e.target.value;
         if (pin === PIN) {
           removePinContainer();
           showInfoContainer();
         }
+      }
+    });
+
+    const playButton = document.querySelector(".play-button");
+    playButton.addEventListener("click", () => {
+      displayGame();
+      removeInfoContainer();
+      deBlur();
+    });
+
+    document.getElementById("about").addEventListener("click", function () {
+      document.getElementById("info-overlay").style.display = "block";
+    });
+
+    document
+      .getElementById("instructions")
+      .addEventListener("click", function () {
+        document.getElementById("instructions-overlay").style.display =
+          "block";
       });
 
-      pinInput.addEventListener("keyup", (e) => {
-        if (e.key === "Enter") {
-          const pin = e.target.value;
-          if (pin === PIN) {
-            removePinContainer();
-            showInfoContainer();
-          }
-        }
+    document
+      .getElementById("close-info")
+      .addEventListener("click", function () {
+        document.getElementById("info-overlay").style.display = "none";
       });
 
-      const playButton = document.querySelector(".play-button");
-      playButton.addEventListener("click", () => {
-        displayGame();
-        removeInfoContainer();
-        deBlur();
+    document
+      .getElementById("close-instructions")
+      .addEventListener("click", function () {
+        document.getElementById("instructions-overlay").style.display =
+          "none";
       });
+  </script>
+</body>
 
-      document.getElementById("about").addEventListener("click", function () {
-        document.getElementById("info-overlay").style.display = "block";
-      });
-
-      document
-        .getElementById("instructions")
-        .addEventListener("click", function () {
-          document.getElementById("instructions-overlay").style.display =
-            "block";
-        });
-
-      document
-        .getElementById("close-info")
-        .addEventListener("click", function () {
-          document.getElementById("info-overlay").style.display = "none";
-        });
-
-      document
-        .getElementById("close-instructions")
-        .addEventListener("click", function () {
-          document.getElementById("instructions-overlay").style.display =
-            "none";
-        });
-    </script>
-  </body>
 </html>
