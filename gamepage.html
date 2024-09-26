@@ -157,8 +157,10 @@
     #title-and-infos {
       display: grid;
       align-items: center;
-      grid-template-areas: "maintitle maintitle" "about instructions";
-      grid-template-columns: 50% 50%;
+      grid-template-areas:
+        "maintitle maintitle maintitle"
+        "about instructions book";
+      grid-template-columns: 33% 33% 33%;
     }
 
     #title-and-infos>maintitle {
@@ -173,7 +175,19 @@
 
     #title-and-infos>instructions {
       grid-area: instructions;
+      text-align: center;
+    }
+
+    #title-and-infos>book {
+      grid-area: book;
       text-align: left;
+      padding-left: 30px;
+    }
+
+    /* Style the link inside the book element */
+    #title-and-infos>book a {
+      text-decoration: none;
+      color: inherit;
     }
 
     @media screen and (max-width: 768px) {
@@ -316,6 +330,9 @@
         <maintitle></maintitle>
         <about id="about"> About </about>
         <instructions id="instructions"> Instructions </instructions>
+        <book id="book">
+          <a href="https://your-book-link.com" target="_blank">Book of Serendip</a>
+        </book>
       </section>
     </div>
     <div class="gamepage-container">
