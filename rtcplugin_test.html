@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Arcware WebRTC Plugin Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #sizeContainer,
+    #videoContainer,
+    #videoRef {
+      width: 100vw;
+      height: 100vh !important;
+      background: #000;
+    }
+
+    .buttons {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      flex-direction: "row";
+      justify-content: "center";
+      align-items: "center";
+      bottom: 10px;
+      column-gap: 5px;
+    }
+
+    .button {
+      padding: 7px 15px;
+      border: none;
+      border-radius: 4px;
+      background: rgba(62, 62, 62, 0.75);
+      cursor: pointer;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function handleMute() {
+      if (document.getElementById("audioRef").paused === true) {
+        document.getElementById("audioRef").play();
+      } else if (document.getElementById("audioRef").paused === false) {
+        document.getElementById("audioRef").pause();
+      }
+    }
+  </script>
+  <script>
+    let newWebRTC;
+    function handleSendCommands(command) {
+      newWebRTC.emitUIInteraction(command);
+    }
+  </script>
+  <div id="sizeContainer">
+    <div id="videoContainer">
+      <video id="videoRef"></video>
+      <audio id="audioRef"></audio>
+    </div>
+    <div class="buttons">
+      <button class="button button-1" onclick="handleSendCommands({ body_color: 'body_color_01' })">
+        Change to color 1
+      </button>
+      <button class="button button-2" onclick="handleSendCommands({ body_color: 'body_color_02' })">
+        Change to color 2
+      </button>
+      <button class="button button-3" onclick="handleSendCommands({ body_color: 'body_color_03' })">
+        Change to color 3
+      </button>
+      <button class="button button-4" onclick="handleSendCommands({ body_color: 'body_color_04' })">
+        Change to color 4
+      </button>
+      <button class="button button-5" onclick="handleSendCommands({ body_color: 'body_color_05' })">
+        Change to color 5
+      </button>
+      <button class="button button-6" onclick="handleMute()">Sound</button>
+    </div>
+  </div>
+  <script type="module">
+    import {WebRTCClient} from "https://unpkg.com/@arcware/webrtc-plugin@latest/index_new.umd.js";
+    newWebRTC = new WebRTCClient({
+      address: "wss://signalling-client.ragnarok.arcware.cloud/",
+      shareId: "share-02406715-194c-47b2-a2ac-ce52b9d424a3",
+      settings: {
+        /* object with settings */
+      },
+      playOverlay: false,
+      loader: (val) => {
+        /* handle loader */
+      },
+      applicationResponse: (response) => {
+        /* handle application response */
+        console.log("response", response);
+      },
+      sizeContainer: document.getElementById("sizeContainer"),
+      container: document.getElementById("videoContainer"),
+      videoRef: document.getElementById("videoRef"),
+      audioRef: document.getElementById("audioRef"),
+    });
+  </script>
+</body>
+
+</html> audioRef: document.getElementById("audioRef"),
+});
+</script>
+</body>
+
+</html> audioRef: document.getElementById("audioRef"),
+});
+</script>
+</body>
+
+</html> audioRef: document.getElementById("audioRef"),
+});
+</script>
+</body>
+
+</html>
