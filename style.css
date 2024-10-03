@@ -162,6 +162,11 @@ h1 {
   text-decoration: none;
 }
 
+.link-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .game-info {
   margin-top: 5%;
 }
