@@ -262,6 +262,15 @@ h1 {
   padding-top: 70px;
 }
 
+.ad-title {
+  font-size: 32px;
+  font-family: "Gotahm Narrow Medium", sans-serif;
+  align-self: flex-start;
+  padding-left: 20px;
+  padding-top: 70px;
+  color: #ff9814;
+}
+
 .book-text {
   width: 100%;
   margin-left: 0%;
